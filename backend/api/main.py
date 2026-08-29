@@ -22,6 +22,7 @@ from backend.api.routes_cds_hooks import router as cds_hooks_router
 from backend.api.websockets_telemetry import router as ws_router
 from backend.api.routes_analytics import router as analytics_router
 from backend.api.routes_smart_fhir import router as smart_fhir_router
+from backend.api.routes_emergency import router as emergency_router
 
 
 def create_app() -> FastAPI:
@@ -83,6 +84,7 @@ def create_app() -> FastAPI:
     app.include_router(ws_router, prefix="/ws", tags=["Real-time WebSockets"])
     app.include_router(analytics_router, prefix="/api/v1/analytics", tags=["Clinical Analytics"])
     app.include_router(smart_fhir_router, prefix="/api/v1/smart", tags=["SMART on FHIR"])
+    app.include_router(emergency_router, prefix="/api/v1/emergency-access", tags=["Emergency Break-Glass Access"])
 
     return app
 
