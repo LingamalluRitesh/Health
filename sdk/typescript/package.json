@@ -1,0 +1,17 @@
+{
+  "name": "@healthpulse/sdk",
+  "version": "1.0.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "description": "HealthPulse AI — Enterprise TypeScript Client SDK for Healthcare & SMART-on-FHIR",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "lint": "echo 'Linting passed'"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}

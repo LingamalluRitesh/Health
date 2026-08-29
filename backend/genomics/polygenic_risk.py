@@ -4,7 +4,7 @@ Aggregates genome-wide association study (GWAS) effect sizes across susceptibili
 to estimate percentiles and lifetime relative risks for complex diseases.
 """
 
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any, Optional, Tuple
 from dataclasses import dataclass
 import math
 

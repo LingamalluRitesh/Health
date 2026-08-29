@@ -5,7 +5,7 @@ Guarantees tamper-evident, append-only logging for all EHR accesses, clinical mo
 
 import hashlib
 import json
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, Tuple
 from dataclasses import dataclass, field
 from datetime import datetime
 
