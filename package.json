@@ -1,0 +1,22 @@
+{
+  "name": "healthpulse-ai-enterprise",
+  "version": "1.0.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "description": "HealthPulse AI — Enterprise Clinical Intelligence, Medical MLOps & Healthcare AI Platform",
+  "author": "HealthPulse AI Engineering Team",
+  "workspaces": [
+    "frontend",
+    "sdk/typescript"
+  ],
+  "scripts": {
+    "dev": "python run.py --dev",
+    "start": "python run.py",
+    "build": "npm run build --workspaces",
+    "test": "python -m pytest backend/tests/ -v",
+    "lint": "npm run lint --workspaces"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}
