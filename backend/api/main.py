@@ -5,11 +5,12 @@ Configures CORS, middleware, global error handlers, route registries, and OpenAP
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, PlainTextResponse
 from datetime import datetime
 
 from backend.core.config import get_settings
 from backend.core.exceptions import HealthPulseException
+from backend.core.observability import ClinicalMetricsRegistry
 from backend.api.routes_patients import router as patients_router
 from backend.api.routes_clinical import router as clinical_router
 from backend.api.routes_imaging import router as imaging_router
@@ -70,6 +71,13 @@ def create_app() -> FastAPI:
             "timestamp": datetime.utcnow().isoformat() + "Z",
             "compliance": "HIPAA / EU AI Act High-Risk SaMD",
         }
+
+    metrics_registry = ClinicalMetricsRegistry()
+
+    @app.get("/metrics", tags=["System"], response_class=PlainTextResponse)
+    async def metrics_endpoint():
+        metrics_registry.http_requests_total.inc()
+        return metrics_registry.export_prometheus_format()
 
     # Register Routers
     app.include_router(patients_router, prefix="/api/v1/patients", tags=["Patients & EHR"])
