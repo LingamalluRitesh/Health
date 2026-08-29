@@ -3,7 +3,7 @@ HealthPulse AI — Renyi Differential Privacy (RDP) & Moments Privacy Accountant
 Tracks cumulative privacy expenditure across federated learning communication rounds.
 """
 
-from typing import List, Dict, Any, Tuple
+from typing import List, Dict, Any, Tuple, Optional
 from dataclasses import dataclass
 import math
 
